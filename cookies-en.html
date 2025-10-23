@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cookie Policy – Tibia Chronicles: Survivors</title>
+  <meta name="description" content="Cookie Policy for tibiachronicles.com (Navh Games).">
+  <style>
+    :root{color-scheme:light dark}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.6;margin:0;background:#fff;color:#222}
+    main{max-width:900px;margin:0 auto;padding:40px 20px}
+    h1{font-size:2rem;margin:0 0 8px}
+    .muted{color:#666;font-size:.95rem;margin-bottom:24px}
+    h2{margin-top:28px}
+    a{color:#0066cc;text-decoration:none}
+    a:hover{text-decoration:underline}
+    ul,ol{padding-left:20px}
+    table{border-collapse:collapse;width:100%;margin:12px 0}
+    td,th{border:1px solid #ddd;padding:8px;text-align:left}
+    footer{margin-top:40px;font-size:.9rem;color:#666}
+    .lang{margin-top:-6px}
+    .note{font-size:.95rem;background:#f7f7f7;border:1px solid #eee;padding:10px;border-radius:8px}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Cookie Policy – <em>Tibia Chronicles: Survivors</em></h1>
+  <div class="muted">Last updated: <strong>2025-09-13</strong></div>
+
+  <p>This Policy explains how <strong>tibiachronicles.com</strong>, operated by <strong>Navh Games</strong>, uses cookies and similar technologies in compliance with GDPR and LGPD.</p>
+
+  <h2>1. What are cookies?</h2>
+  <p>Cookies are small files stored by your browser. Similar technologies include localStorage, sessionStorage, pixels, and SDKs.</p>
+
+  <h2>2. How we use them</h2>
+  <ul>
+    <li><strong>Strictly necessary</strong>: core site functionality (security, navigation, consent storage).</li>
+    <li><strong>Performance/analytics</strong>: aggregated usage statistics.</li>
+    <li><strong>Advertising</strong>: ad measurement and personalization when you consent (e.g., Google Ads/AdSense/AdMob).</li>
+  </ul>
+
+  <h2>3. Legal basis</h2>
+  <ul>
+    <li>Necessary: <strong>legitimate interests</strong>.</li>
+    <li>Analytics & Advertising: <strong>consent</strong>, which you can withdraw at any time (see Section 6).</li>
+  </ul>
+
+  <h2>4. Cookies we may use</h2>
+  <div class="note">Exact names vary by provider/region. Common examples:</div>
+  <table>
+    <thead><tr><th>Category</th><th>Examples</th><th>Purpose</th><th>Typical retention</th></tr></thead>
+    <tbody>
+      <tr><td>Necessary</td><td>cookie_consent, __cf_bm</td><td>Consent storage, bot protection</td><td>Up to 1 year</td></tr>
+      <tr><td>Analytics</td><td>_ga*, _gid, _gcl_au</td><td>Traffic measurement & attribution</td><td>24h–26 months</td></tr>
+      <tr><td>Advertising</td><td>IDE, DSID, __gads, __gpi</td><td>Ad frequency, personalization, reporting</td><td>3 months–2 years</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. Third-party cookies</h2>
+  <p>We may use <strong>Google</strong> services (Analytics, Ads/AdSense/AdMob). These providers may set their own cookies to measure usage and serve ads. See their policies for details and additional opt-out options.</p>
+
+  <h2>6. Your choices</h2>
+  <ul>
+    <li>On first visit we display a <strong>consent banner</strong> to accept or reject non-essential categories.</li>
+    <li>You can <strong>change your choice</strong> anytime via “Cookie preferences” in the site footer.</li>
+    <li>You can <strong>block/delete cookies</strong> in your browser settings. Some features may not work properly.</li>
+  </ul>
+
+  <h2>7. Do Not Track</h2>
+  <p>We do not currently respond to DNT signals.</p>
+
+  <h2>8. Controller contact</h2>
+  <p>Navh Games — 📧 <a href="mailto:contato@tibiachronicles.com">contato@tibiachronicles.com</a></p>
+
+  <h2>9. Changes</h2>
+  <p>We may update this Policy from time to time. The current version will always be published on this page.</p>
+
+  <footer>
+    © 2025 Navh Games. All rights reserved. | English version
+    <div class="lang">Prefer Portuguese? <a href="/cookies">Read the Portuguese version</a>. | <a href="/privacy-en">Privacy</a> | <a href="/terms-en">Terms</a></div>
+  </footer>
+</main>
+
+<!-- Simple consent banner (optional) -->
+<script>
+(function(){
+  var KEY='tc_cookie_consent_v1';
+  if(!localStorage.getItem(KEY)){
+    var b=document.createElement('div');
+    b.style.cssText='position:fixed;left:0;right:0;bottom:0;background:#111;color:#fff;padding:14px 16px;display:flex;gap:12px;align-items:center;z-index:9999;flex-wrap:wrap';
+    b.innerHTML='<span>We use cookies to improve your experience. Choose:</span>';
+    var a=document.createElement('button');a.textContent='Accept all';a.style.cssText='padding:8px 12px;border:0;border-radius:6px;cursor:pointer';
+    var r=document.createElement('button');r.textContent='Reject non-essential';r.style.cssText='padding:8px 12px;border:0;border-radius:6px;cursor:pointer;background:#444;color:#fff';
+    var p=document.createElement('a');p.textContent='Learn more';p.href='/cookies-en';p.style.cssText='color:#9cf';
+    a.onclick=function(){localStorage.setItem(KEY,JSON.stringify({necessary:true,analytics:true,ads:true,date:new Date().toISOString()}));b.remove();};
+    r.onclick=function(){localStorage.setItem(KEY,JSON.stringify({necessary:true,analytics:false,ads:false,date:new Date().toISOString()}));b.remove();};
+    b.appendChild(a);b.appendChild(r);b.appendChild(p);document.body.appendChild(b);
+  }
+})();
+</script>
+</body>
+</html>
