@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var userAgent = (navigator.userAgent || '').toLowerCase();
+        var googlePlayUrl =
+          'https://play.google.com/store/apps/details?id=com.tibia_chronicles.app';
+        var appStoreUrl =
+          'https://apps.apple.com/us/app/tibia-chronicles-survivors/id6752355049';
+
+        if (userAgent.indexOf('android') !== -1) {
+          window.location.replace(googlePlayUrl);
+          return;
+        }
+
+        if (
+          userAgent.indexOf('iphone') !== -1 ||
+          userAgent.indexOf('ipad') !== -1 ||
+          userAgent.indexOf('ipod') !== -1
+        ) {
+          window.location.replace(appStoreUrl);
+          return;
+        }
+
+        window.location.replace(new URL('../', window.location.href).toString());
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
