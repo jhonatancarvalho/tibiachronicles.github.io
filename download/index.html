@@ -3,30 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
+    <title>Tibia Chronicles - Aventure-se em um Mundo Medieval Épico</title>
+    <meta
+      name="description"
+      content="Embarque em uma aventura nostálgica onde cada partida é um novo desafio. Evolua seu personagem, derrote hordas intermináveis e prove ser o sobrevivente supremo neste RPG retrô inspirado nos clássicos."
+    />
+    <meta name="author" content="Tibia Chronicles Team" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8ETFZ4EV6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-D8ETFZ4EV6', { send_page_view: false });
+    </script>
+
     <script>
       (function () {
         var userAgent = (navigator.userAgent || '').toLowerCase();
+        var pageUrl = new URL(window.location.href);
+        var params = pageUrl.searchParams;
+
         var googlePlayUrl =
           'https://play.google.com/store/apps/details?id=com.tibia_chronicles.app';
         var appStoreUrl =
           'https://apps.apple.com/us/app/tibia-chronicles-survivors/id6752355049';
+        var fallbackUrl = new URL('../', pageUrl).toString();
 
-        if (userAgent.indexOf('android') !== -1) {
-          window.location.replace(googlePlayUrl);
-          return;
-        }
-
-        if (
+        var isAndroid = userAgent.indexOf('android') !== -1;
+        var isIOS =
           userAgent.indexOf('iphone') !== -1 ||
           userAgent.indexOf('ipad') !== -1 ||
-          userAgent.indexOf('ipod') !== -1
-        ) {
-          window.location.replace(appStoreUrl);
-          return;
+          userAgent.indexOf('ipod') !== -1;
+
+        var redirectTarget = isAndroid ? googlePlayUrl : isIOS ? appStoreUrl : fallbackUrl;
+        var deviceType = isAndroid ? 'android' : isIOS ? 'ios' : 'other';
+
+        var analyticsContext = {
+          utm_source: params.get('utm_source') || undefined,
+          utm_medium: params.get('utm_medium') || undefined,
+          utm_campaign: params.get('utm_campaign') || undefined,
+          utm_term: params.get('utm_term') || undefined,
+          utm_content: params.get('utm_content') || undefined,
+        };
+
+        var alreadyRedirected = false;
+
+        function redirectOnce() {
+          if (alreadyRedirected) {
+            return;
+          }
+
+          alreadyRedirected = true;
+          window.location.replace(redirectTarget);
         }
 
-        window.location.replace(new URL('../', window.location.href).toString());
+        gtag('event', 'page_view', {
+          page_path: '/download',
+          page_title: 'Download Redirect',
+          page_location: window.location.href,
+          transport_type: 'beacon',
+          utm_source: analyticsContext.utm_source,
+          utm_medium: analyticsContext.utm_medium,
+          utm_campaign: analyticsContext.utm_campaign,
+          utm_term: analyticsContext.utm_term,
+          utm_content: analyticsContext.utm_content,
+        });
+
+        gtag('event', 'download_redirect', {
+          device_type: deviceType,
+          redirect_target: redirectTarget,
+          transport_type: 'beacon',
+          event_callback: redirectOnce,
+          utm_source: analyticsContext.utm_source,
+          utm_medium: analyticsContext.utm_medium,
+          utm_campaign: analyticsContext.utm_campaign,
+          utm_term: analyticsContext.utm_term,
+          utm_content: analyticsContext.utm_content,
+        });
+
+        window.setTimeout(redirectOnce, 350);
       })();
     </script>
   </head>
